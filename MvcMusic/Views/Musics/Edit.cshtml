@@ -39,6 +39,14 @@
                 <span asp-validation-for="Rating" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Validation" class="control-label"></label>
+                <select asp-for="Validation" id="SelValidation">
+                    <option value="0" selected="selected"> Non validée </option>
+                    <option value="1"> Validée </option>
+                </select>
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>

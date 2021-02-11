@@ -49,7 +49,11 @@ namespace MvcMusic.Controllers
         {
             if (id != music.Id)
             {
-                return BadRequest();
+                return BadRequest("L'ID doit être fourni");
+            }
+            if (!String.IsNullOrEmpty(music.Validation))
+            {
+                return BadRequest("Que cherchez vous ?");
             }
 
             _context.Entry(music).State = EntityState.Modified;
@@ -78,6 +82,14 @@ namespace MvcMusic.Controllers
         [HttpPost]
         public async Task<ActionResult<Music>> PostMusic(Music music)
         {
+            if(music.Validation != "0")
+            {
+                music.Validation = "0";
+            }
+            else
+            {
+                music.Validation = "0";
+            }
             _context.Music.Add(music);
             await _context.SaveChangesAsync();
 

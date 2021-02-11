@@ -24,5 +24,9 @@ namespace MvcMusic.Models
 
         [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$"), StringLength(5)]
         public string Rating { get; set; }
+
+        [Display(Name = "Etat validation"), System.ComponentModel.DefaultValue("0")]
+        public string Validation { get; set; }
+
     }
 }
