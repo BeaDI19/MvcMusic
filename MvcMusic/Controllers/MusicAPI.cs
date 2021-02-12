@@ -102,6 +102,24 @@ namespace MvcMusic.Controllers
             return CreatedAtAction(nameof(GetMusic), new { id = music.Id }, music);
         }
 
+        //POST : depuis le winform
+        [HttpPost("WinForm")]
+        public async Task<ActionResult<Music>> PostMusicWF(Music music)
+        {
+            if (music.Validation != "0")
+            {
+                music.Validation = "0";
+            }
+            else
+            {
+                music.Validation = "0";
+            }
+            _context.Music.Add(music);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetMusic), new { id = music.Id }, music);
+        }
+
         // DELETE: api/MusicAPI/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMusic(int id)

@@ -15,37 +15,36 @@ using Newtonsoft;
 
 namespace MusicForm
 {
-    public partial class Form1 : Form
+    public partial class FrmMain : Form
     { 
-        public Form1()
+        public FrmMain()
         {  
             this.Load += new EventHandler(Form1_Load);
         }
 
-        private TextBox textBox1;
         private Button button1;
-        private ListBox listBox1;
+        public ListBox listBox1;
  
 
         private BindingSource binding1;
         void Form1_Load(object sender, EventArgs e)
         {
             listBox1 = new ListBox();
-            textBox1 = new TextBox();
             binding1 = new BindingSource();
             button1 = new Button();
-             listBox1.Location = new Point(140, 25);
+
+            listBox1.Location = new Point(140, 25);
             listBox1.Size = new Size(123, 160);
-            textBox1.Location = new Point(23, 70);
-            textBox1.Size = new Size(100, 20);
-            textBox1.Text = "Wingdings";
+
             button1.Location = new Point(23, 25);
             button1.Size = new Size(75, 23);
-            button1.Text = "Search";
+            button1.Text = "Ajouter";
             button1.Click += new EventHandler(this.button1_Click);
-            this.ClientSize = new Size(292, 266);
+
+            this.ClientSize = new Size(400, 250);
+            this.Text = "Liste des musiques validées";
+
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.listBox1);
 
             UpdateMusicGrid();
@@ -75,18 +74,9 @@ namespace MusicForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (binding1.SupportsSearching != true)
-            {
-                MessageBox.Show("Cannot search the list.");
-            }
-            else
-            {
-                int foundIndex = binding1.Find("title", textBox1.Text);
-                if (foundIndex > -1)
-                    listBox1.SelectedIndex = foundIndex;
-                else
-                    MessageBox.Show("Font was not found.");
-            }
+
+            Frm2 frmAjout = new Frm2();
+            frmAjout.ShowDialog();
         }
     }
 
