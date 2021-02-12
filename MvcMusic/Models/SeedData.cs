@@ -14,6 +14,7 @@ namespace MvcMusic.Models
                 serviceProvider.GetRequiredService<
                     DbContextOptions<MvcMusicContext>>()))
             {
+                context.Database.EnsureCreated();
                 // Look for any movies.
                 if (context.Music.Any())
                 {
