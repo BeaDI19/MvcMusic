@@ -59,7 +59,7 @@ namespace MusicForm
 
 
             // Create a request using a URL that can receive a post.
-            WebRequest request = WebRequest.Create("https://localhost:44306/api/musicAPI/WinForm");
+            WebRequest request = WebRequest.Create("https://mvcmusiclist.azurewebsites.net/api/MusicAPI/WinForm");
             // Set the Method property of the request to POST.
             request.Method = "POST";
             // Set the ContentType property of the WebRequest.
