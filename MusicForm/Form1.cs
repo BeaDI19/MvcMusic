@@ -55,7 +55,7 @@ namespace MusicForm
         private void UpdateMusicGrid()
         {
             var client = new HttpClient();
-            client.BaseAddress = new Uri("https://localhost:44306/api/MusicAPI");
+            client.BaseAddress = new Uri("https://localhost:44306/api/MusicAPI/validation");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             var response = client.GetAsync(client.BaseAddress).Result;
@@ -69,6 +69,7 @@ namespace MusicForm
                 binding1.DataSource = musics;
                 listBox1.DataSource = binding1;
                 listBox1.DisplayMember = "title";
+                
             }
         }
 

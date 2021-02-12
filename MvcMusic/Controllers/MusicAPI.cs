@@ -27,6 +27,12 @@ namespace MvcMusic.Controllers
         {
             return await _context.Music.ToListAsync();
         }
+        // GET: api/MusicAPI
+        [HttpGet("validation")]
+        public async Task<ActionResult<IEnumerable<Music>>> GetMusicValidation()
+        {
+            return await _context.Music.Where(m => m.Validation == "1").ToListAsync();
+        }
 
         // GET: api/MusicAPI/5
         [HttpGet("{id}")]
