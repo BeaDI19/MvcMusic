@@ -47,7 +47,7 @@ namespace MusicForm
         {
             MusicDto musicsList = new MusicDto
             {
-               // Id = null,
+                Id = null,
                 Title = tBTitle.Text,
                 ReleaseDate = dateTimePickerSortie.Value,
                 Genre = tBGenre.Text,
@@ -93,8 +93,8 @@ namespace MusicForm
 
             }
 
-            Frm2 AjoutMusic = new Frm2();
-            AjoutMusic.Close();
+            
+            Close();
                 
         }
 
